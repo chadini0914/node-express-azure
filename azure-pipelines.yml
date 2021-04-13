@@ -52,11 +52,20 @@ steps:
     artifactName: 'drop'
     downloadPath: '$(System.DefaultWorkingDirectory)'
 
+
 - task: AzureRmWebAppDeployment@4
   displayName: 'Deploy Azure App Service to Slot'
   inputs:
     azureSubscription: 'RDSNODEVSERVERCON'
     appType: 'webAppLinux'
-    WebAppName: 'nodeExpressDemonoDev'
+    WebAppName: 'dev (nodeExpressDemonoDev/dev)'
     packageForLinux: $(System.DefaultWorkingDirectory)/**/*.zip
+    
+- task: AzureAppServiceManage@0
+  inputs:
+    azureSubscription: 'RDSNODEVSERVERCON'
+    Action: 'Swap Slots'
+    WebAppName: 'nodeExpressDemonoDev'
+    ResourceGroupName: 'rds-operational-no-dev'
+    SourceSlot: 'dev'
 
