@@ -1,3 +1,9 @@
+parameters:
+  - name: WebAppKind
+    displayName: app Type
+    type: string
+    default: webAppLinux
+
 trigger:
 - master
 
@@ -30,3 +36,11 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+
+- task: AzureRmWebAppDeployment@4
+  displayName: 'Deploy Azure App Service to Slot'
+  inputs:
+    azureSubscription: '$(Parameters.ConnectedServiceName)'
+    appType: '$(Parameters.WebAppKind)'
+    WebAppName: '$(Parameters.WebAppName)'
+    StartupCommand: '$(Parameters.StartupCommand)'
