@@ -58,7 +58,7 @@ steps:
   inputs:
     azureSubscription: 'RDSNODEVSERVERCON'
     appType: 'webAppLinux'
-    WebAppName: 'nodeExpressDemonoDev/dev'
+    WebAppName: 'nodeExpressDemonoDev-dev'
     packageForLinux: $(System.DefaultWorkingDirectory)/**/*.zip
     
 - task: AzureAppServiceManage@0
