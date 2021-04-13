@@ -54,3 +54,5 @@ steps:
     azureSubscription: 'RDSNODEVSERVERCON'
     appType: 'webAppLinux'
     WebAppName: 'nodeExpressDemonoDev'
+    packageForLinux: $(System.DefaultWorkingDirectory)/**/*.zip
+
