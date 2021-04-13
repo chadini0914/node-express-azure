@@ -4,6 +4,17 @@ parameters:
     type: string
     default: webAppLinux
 
+  - name: ConnectedServiceName
+    type: string
+    default: RDSNODEVSERVERCON
+  
+  - name: WebAppName
+    type: string
+    default: nodeExpressDemonoDev
+
+
+
+
 trigger:
 - master
 
