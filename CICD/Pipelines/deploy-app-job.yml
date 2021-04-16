@@ -21,6 +21,7 @@ parameters:
 
 jobs:
   - job: Deploy_${{parameters.jobSuffix}}
+    dependsOn: Build_${{parameters.jobSuffix}}
     displayName: 'Deploy ${{parameters.jobSuffix}}'
     workspace:
       clean: resources
