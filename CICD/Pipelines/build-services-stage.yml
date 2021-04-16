@@ -25,4 +25,4 @@ stages:
           buildConfiguration: ${{ parameters.buildConfiguration }}
           publishArtifacts: ${{ parameters.publishArtifacts }}
           applicationName: '$(projectName)'
-          jobSuffix: react-app
+          jobSuffix: reactapp
