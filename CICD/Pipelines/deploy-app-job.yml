@@ -40,4 +40,4 @@ jobs:
         azureSubscription: 'RDSNODEVSERVERCON'
         appType: 'webAppLinux'
         WebAppName: 'nodeExpressDemonoDev'
-        packageForLinux: $(System.DefaultWorkingDirectory)\${{parameters.applicationName}}\**\.zip
+        packageForLinux: $(System.DefaultWorkingDirectory)\${{parameters.applicationName}}\${{ parameters.buildConfiguration }}.zip
