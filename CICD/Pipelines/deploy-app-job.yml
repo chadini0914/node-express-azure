@@ -34,10 +34,11 @@ jobs:
         artifact: ${{parameters.applicationName}}
         path: $(System.DefaultWorkingDirectory)\${{parameters.applicationName}}
 
+
     - task: AzureRmWebAppDeployment@4
       displayName: 'Deploy Azure App Service to Slot'
       inputs:
         azureSubscription: 'RDSNODEVSERVERCON'
         appType: 'webAppLinux'
         WebAppName: 'nodeExpressDemonoDev'
-        packageForLinux: $(System.DefaultWorkingDirectory)\${{parameters.applicationName}}/180.zip
+        packageForLinux: $(System.DefaultWorkingDirectory)\${{parameters.applicationName}}/${{parameters.buildConfiguration}}.zip

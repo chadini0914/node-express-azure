@@ -33,3 +33,4 @@ stages:
           applicationName: '$(projectName)'
           jobSuffix: reactapp
           webbAppName: 'nodeExpressDemonoDev'
+          buildConfiguration: ${{ parameters.buildConfiguration }}
