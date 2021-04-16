@@ -58,5 +58,5 @@ jobs:
       inputs:
         buildType: 'current'
         downloadType: 'single'
-        artifactName: ${{parameters.applicationName}}
+        artifactName: ${{parameters.applicationName}}        
         downloadPath: '$(System.DefaultWorkingDirectory)'
