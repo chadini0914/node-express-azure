@@ -1,0 +1,28 @@
+parameters:
+  - name: buildConfiguration
+    displayName: Build Configuration
+    type: string
+    default: Release
+    values:
+      - Release
+      - Debug
+
+  - name: publishArtifacts
+    displayName: Publish artifacts
+    type: boolean
+    default: false
+
+stages:
+  - stage: Build
+    displayName: Build azure functions
+
+    variables:
+    - template: variables.yml
+
+    jobs:
+      - template: build-azure-function-job.yml
+        parameters: 
+          buildConfiguration: ${{ parameters.buildConfiguration }}
+          publishArtifacts: ${{ parameters.publishArtifacts }}
+          applicationName: '$(projectName)'
+          jobSuffix: react-app
