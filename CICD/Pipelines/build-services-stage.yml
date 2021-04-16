@@ -29,3 +29,7 @@ stages:
       
       
       - template: deploy-app-job.yml
+        parameters:
+          applicationName: '$(projectName)'
+          jobSuffix: reactapp
+          webbAppName: 'nodeExpressDemonoDev'
