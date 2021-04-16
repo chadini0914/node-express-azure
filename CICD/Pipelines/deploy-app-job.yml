@@ -1,0 +1,42 @@
+parameters:
+  - name: applicationName
+    displayName: Name of the function app
+    type: string
+
+  - name: jobSuffix
+    displayName: Job suffix
+    type: string
+
+  - name: webbAppName
+    type: string
+
+  - name: environment
+    type: string
+    default: dev
+    values:
+      - dev
+      - stg 
+      - tst 
+      - prd
+
+jobs:
+  - job: Deploy_${{parameters.jobSuffix}}
+    displayName: 'Deploy ${{parameters.jobSuffix}}'
+    workspace:
+      clean: resources
+    steps:
+
+    - checkout: none
+    
+    - task: DownloadPipelineArtifact@2
+      inputs:
+        artifact: ${{parameters.applicationName}}
+        path: $(System.DefaultWorkingDirectory)\${{parameters.applicationName}}
+
+    - task: AzureRmWebAppDeployment@4
+      displayName: 'Deploy Azure App Service to Slot'
+      inputs:
+        azureSubscription: 'RDSNODEVSERVERCON'
+        appType: 'webAppLinux'
+        WebAppName: 'nodeExpressDemonoDev'
+        packageForLinux: $(System.DefaultWorkingDirectory)\${{parameters.applicationName}}\${{parameters.applicationName}}.zip
