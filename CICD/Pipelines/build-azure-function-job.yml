@@ -50,7 +50,7 @@ jobs:
   
     - task: PublishBuildArtifacts@1
       inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        PathtoPublish: '$(System.DefaultWorkingDirectory)'
         ArtifactName: ${{parameters.applicationName}}
         publishLocation: 'Container'
 
