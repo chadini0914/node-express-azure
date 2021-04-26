@@ -35,10 +35,10 @@ jobs:
         path: $(System.DefaultWorkingDirectory)\${{parameters.applicationName}}
 
 
-    - task: AzureRmWebAppDeployment@4
-      displayName: 'Deploy Azure App Service to Slot'
-      inputs:
-        azureSubscription: 'RDSNODEVSERVERCON'
-        appType: 'webAppLinux'
-        WebAppName: 'nodeExpressDemonoDev'
-        packageForLinux: $(System.DefaultWorkingDirectory)\${{parameters.applicationName}}/$(Build.BuildId).zip
+    #- task: AzureRmWebAppDeployment@4
+    #  displayName: 'Deploy Azure App Service to Slot'
+    #  inputs:
+    #    azureSubscription: 'RDSNODEVSERVERCON'
+    #    appType: 'webAppLinux'
+    #    WebAppName: 'nodeExpressDemonoDev'
+    #    packageForLinux: $(System.DefaultWorkingDirectory)\${{parameters.applicationName}}/$(Build.BuildId).zip
