@@ -32,4 +32,4 @@ stages:
         parameters:
           applicationName: '$(projectName)'
           jobSuffix: reactapp
-          webbAppName: 'nodeExpressDemonoDev'
+          webbAppName: 'nodeExpressDemonoDevtest'
